@@ -1,0 +1,9 @@
+.like{
+    display: inline-block;
+    margin-left: 130px;
+    
+}
+
+.like svg{
+    margin-left: 5px;
+}
