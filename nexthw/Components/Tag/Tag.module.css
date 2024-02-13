@@ -1,0 +1,38 @@
+.tag{
+    padding: 0px 2px;
+    display: inline-block;
+    margin: 2px 0px;
+}
+
+.s{
+    font-size: 14px;
+}
+
+.m{
+    font-size: 16px;
+}
+
+.l{
+    font-size: 20px;
+}
+
+.regular{
+    font-weight: normal;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.light{
+    font-weight: lighter;
+}
+
+.isref{
+    font-weight: normal;
+    color: blue;
+}
+
+.isref:visited{
+    color: blueviolet;
+}
