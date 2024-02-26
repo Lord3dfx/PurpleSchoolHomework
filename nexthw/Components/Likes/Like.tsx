@@ -42,25 +42,5 @@ export const Like = ({children, likeCounts, isLiked = false, sendLike}:LikeProps
             {likes}
         </>
     );
-
-
-   /* const setLike = (i:number) =>{
-        if(!sendLike){
-            return
-        }
-       setLikeFill(!likefill)
-       likefill == false ? sendLike(likeCounts + 1) : sendLike(likeCounts - 1)
-    }
-
-    return (
-        <span className={cn(styles.like,{
-            [styles.isLike]: likefill == true
-        })}
-            >
-        {likeCounts}
-        <Svglike onClick={setLike}/>
-        {children}
-        </span>
-    ); */
 };
 
