@@ -24,7 +24,9 @@ export default function RootLayout({
           <a href="https://github.com/Lord3dfx" title="To Github!" target="blank"><Svggit></Svggit></a>
           
         </div>
+        <div className={styles.wrapper}>
         {children}
+        </div>
         </body>
     </html>
   );

@@ -14,7 +14,7 @@ export const Like = ({children, likeCounts, isLiked = false, sendLike}:LikeProps
         createLike()
     },[likefill]);
 
-    const setLike = (i:number) =>{
+    const setLike = () =>{
         if(!sendLike){
             return
         }
@@ -23,7 +23,7 @@ export const Like = ({children, likeCounts, isLiked = false, sendLike}:LikeProps
     }
     
     const createLike = () => {
-        const updateLike = (r:JSX.Element) =>{
+        const updateLike = () =>{
         return (
             <span className={cn(styles.like,{
                 [styles.isLike]: likefill == true
