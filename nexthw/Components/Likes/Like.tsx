@@ -19,14 +19,14 @@ export const Like = ({children, likeCounts, isLiked = false, sendLike}:LikeProps
             return
         }
        setLikeFill(!likefill)
-       likefill == false ? sendLike(likeCounts + 1) : sendLike(likeCounts - 1)
+       !likefill ? sendLike(likeCounts + 1) : sendLike(likeCounts - 1)
     }
     
     const createLike = () => {
         const updateLike = () =>{
         return (
             <span className={cn(styles.like,{
-                [styles.isLike]: likefill == true
+                [styles.isLike]: likefill
             })}
                 >
             {likeCounts}

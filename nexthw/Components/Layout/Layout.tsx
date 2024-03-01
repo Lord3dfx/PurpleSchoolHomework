@@ -2,33 +2,25 @@ import styles from './Layout.module.css';
 import { useState } from 'react';
 import {Descript, Like, Tag} from '@/Components';
 import Image from 'next/image';
+import {api} from '@/api/api'
+import {ImagePaths} from '@/Components/helper'
 
 export const Layout = ():JSX.Element =>{
 
-    const [like, setLikes] = useState<number>(4)
+    const [like, setLikes] = useState(4)
 
-  const setLike = (i:number) =>{
-    fetch('https://jsonplaceholder.typicode.com/posts/1', {
-  method: 'PATCH',
-  body: JSON.stringify({
-    title: 'foo',
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json));
-  setLikes(i)
+  const setLike = (id:number) =>{
+  api.fetchAPI(()=>{setLikes(id)})
+  
   }
 
 
     return(
         <div className={styles.layout}>
-            <Image src="/gridimage.jpg"
-        alt='Картинка'
-        width={345}
-        height={250}/>
+            <Image src={ImagePaths.gridImage.path}
+        alt={ImagePaths.gridImage.alt}
+        width={ImagePaths.gridImage.width}
+        height={ImagePaths.gridImage.height}/>
         <Tag fontw='bold'>Front-end</Tag>
         <Tag fontw='light'>1 мес. назад</Tag>
         <Like likeCounts={like} sendLike={setLike}></Like>
