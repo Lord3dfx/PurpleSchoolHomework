@@ -22,10 +22,11 @@ export default function RootLayout({
         <div className={styles.header}>
           <h1>.My_Blog</h1>
           <a href="https://github.com/Lord3dfx" title="To Github!" target="blank"><Svggit></Svggit></a>
-          
         </div>
         <div className={styles.wrapper}>
+          <div className={styles.container}>
         {children}
+        </div>
         </div>
         </body>
     </html>
