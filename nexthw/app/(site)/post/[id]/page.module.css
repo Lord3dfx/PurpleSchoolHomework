@@ -1,4 +1,4 @@
-.wrapper{
+.post{
     display: inline-block;
     width: 380px;
     height: 550px;
@@ -6,7 +6,6 @@
     border: 1px solid #000000;
 }
 
-.read{
-    cursor: pointer;
+.backb{
     color: blue;
 }

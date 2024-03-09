@@ -12,7 +12,6 @@ export const api ={
   },
 })
   .then((response) => response.json())
-  .then((json) => console.log(json))
   .then(callback())
   },
 
@@ -22,6 +21,13 @@ export const api ={
       return null
     }
     return res.json()
+  },
+
+  getPost: async (id: string) => {
+    const res = await fetch(API.posts.get + id);
+    if(!res.ok){
+      return null
+    }
+    return res.json()
   }
-  
 }
