@@ -1,4 +1,5 @@
 import { API } from '@/app/api';
+import { IPosts } from '@/interfaces/interface';
 
 export const api ={
 
@@ -15,15 +16,12 @@ export const api ={
   .then(callback())
   },
 
-  fetchPosts: async() => {
+  fetchPosts: async():Promise<IPosts[]> => {
     const res = await fetch(API.posts.get);
-    if(!res.ok){
-      return null
-    }
     return res.json()
   },
 
-  getPost: async (id: string) => {
+  getPost: async (id: string):Promise<IPosts | null> => {
     const res = await fetch(API.posts.get + id);
     if(!res.ok){
       return null

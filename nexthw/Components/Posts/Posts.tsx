@@ -5,9 +5,12 @@ import Link from 'next/link';
 
 
 export const Posts = async () =>{
-const posts= await api.fetchPosts() 
+const posts = await api.fetchPosts() 
+    if(!posts){
+        return null
+    }
     return(
-       <>{posts.map((el:IPosts)=>{return<div className={styles.wrapper}>
+       <>{posts.map((el)=>{return<div className={styles.wrapper} key={el.id}>
         <p>Post id: {el.id}</p>
          <p>Title: {el.title}</p>
          <p>Content: {el.body}</p>
