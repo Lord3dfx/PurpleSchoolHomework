@@ -1,0 +1,11 @@
+.post{
+    display: inline-block;
+    width: 380px;
+    height: 550px;
+    padding: 1em;
+    border: 1px solid #000000;
+}
+
+.backb{
+    color: blue;
+}

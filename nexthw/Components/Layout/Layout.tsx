@@ -1,9 +1,12 @@
+'use client'
+
 import styles from './Layout.module.css';
 import { useState } from 'react';
 import {Descript, Like, Tag} from '@/Components';
 import Image from 'next/image';
 import {api} from '@/api/api'
 import {ImagePaths} from '@/Components/helper'
+
 
 export const Layout = ():JSX.Element =>{
 
@@ -29,5 +32,6 @@ export const Layout = ():JSX.Element =>{
         <Tag>3 минуты</Tag>
         <Tag isref='true' href='/'>Читать</Tag>
         </div>
+        
     );
 };
