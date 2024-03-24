@@ -1,6 +1,6 @@
 .like{
-    display: inline-block;
-    margin-left: 130px;
+    
+    float: inline-end;
 }
 
 .like svg{

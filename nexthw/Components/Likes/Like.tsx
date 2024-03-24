@@ -4,22 +4,24 @@ import { LikeProps } from "./Like.props";
 import styles from './Like.module.css';
 import Svglike from '@/public/like.svg';
 import cn from "classnames";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from "@/context/app.context";
 
-export const Like = ({children, likeCounts, isLiked = false, sendLike}:LikeProps):JSX.Element =>{
+export const Like = ({children, isLiked = false}:LikeProps):JSX.Element =>{
     const [likefill, setLikeFill] = useState<boolean>(isLiked)
-    const [likes, setLikes] = useState<JSX.Element>(<></>)
+    const [like, setLike] = useState<JSX.Element>(<></>)
+    const {likes, setLikes} = useContext(AppContext)
 
     useEffect(()=>{
         createLike()
     },[likefill]);
 
-    const setLike = () =>{
-        if(!sendLike){
-            return
+    const sendLike = () =>{
+        if(!setLikes){
+            return null
         }
        setLikeFill(!likefill)
-       !likefill ? sendLike(likeCounts + 1) : sendLike(likeCounts - 1)
+       !likefill ? setLikes(likes + 1) : setLikes(likes - 1)
     }
     
     const createLike = () => {
@@ -29,17 +31,17 @@ export const Like = ({children, likeCounts, isLiked = false, sendLike}:LikeProps
                 [styles.isLike]: likefill
             })}
                 >
-            {likeCounts}
-            <Svglike onClick={setLike}/>
+            {likes}
+            <Svglike onClick={sendLike}/>
             {children}
             </span>
         ); 
     }
-    setLikes(updateLike)}
+    setLike(updateLike)}
 
     return (
         <>
-            {likes}
+            {like}
         </>
     );
 };

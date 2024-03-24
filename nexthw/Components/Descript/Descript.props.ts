@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 
-export interface DescriptProps{
-   children: ReactNode
+export interface DescriptProps extends DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>{
+   children?: ReactNode
 }

@@ -1,9 +1,9 @@
 import { DescriptProps } from "./Descript.props";
 import styles from './Descript.module.css';
 
-export const Descript = ({children}:DescriptProps):JSX.Element =>{
+export const Descript = ({children, ...props}:DescriptProps):JSX.Element =>{
     return(
-        <p className={styles.text}>
+        <p className={styles.text} {...props}>
             {children}
         </p>
     );
