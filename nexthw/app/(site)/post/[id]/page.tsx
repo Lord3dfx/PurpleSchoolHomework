@@ -2,6 +2,7 @@ import { api } from "@/api/api";
 import { IPosts } from "@/interfaces/interface";
 import Link from "next/link";
 import styles from './page.module.css'
+import { Comments } from "@/Components";
 
 export async function generateStaticParams(){
     const posts = await api.fetchPosts();
@@ -14,6 +15,7 @@ export default async function Post({params}: {params: { id: string }}) {
         return null
     }
     return (
+        <>
         <div className={styles.post}>
             <p>id:{post.id}</p>
             <p>body: {post.body}</p>
@@ -21,5 +23,7 @@ export default async function Post({params}: {params: { id: string }}) {
             <p>userId: {post.userId}</p>
             <p className={styles.backb}><Link href={'/'}>Назад</Link></p>
         </div>
+        <Comments postID={params.id} />
+        </>
     );
 }

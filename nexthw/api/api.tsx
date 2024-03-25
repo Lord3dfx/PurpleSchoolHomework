@@ -1,5 +1,5 @@
 import { API } from '@/app/api';
-import { IPosts } from '@/interfaces/interface';
+import { IComments, IPosts } from '@/interfaces/interface';
 
 export const api ={
 
@@ -18,6 +18,14 @@ export const api ={
 
   fetchPosts: async():Promise<IPosts[]> => {
     const res = await fetch(API.posts.get);
+    return res.json()
+  },
+
+  fetchComments: async(postid: string):Promise<IComments[] | null> => {
+    const res = await fetch(API.comments.get + postid);
+    if(!res.ok){
+      return null
+    } 
     return res.json()
   },
 
